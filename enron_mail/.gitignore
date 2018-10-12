@@ -1,0 +1,3 @@
+!*.py
+maildir/
+emails_by_address/
