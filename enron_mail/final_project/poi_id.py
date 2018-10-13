@@ -36,8 +36,8 @@ labels, features = targetFeatureSplit(data)
 # Provided to give you a starting point. Try a variety of classifiers.
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
-clf = GaussianNB()
-# clf = DecisionTreeClassifier()
+# clf = GaussianNB()
+clf = DecisionTreeClassifier()
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall 
 ### using our testing script. Check the tester.py script in the final project
