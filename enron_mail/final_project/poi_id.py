@@ -1,11 +1,15 @@
 #!/usr/bin/python
 
 import sys
+reload(sys)
+sys.setdefaultencoding('gbk')
 import pickle
 sys.path.append("../tools/")
 
+
 from feature_format import featureFormat, targetFeatureSplit
 from tester import dump_classifier_and_data
+from plotScatter import plotScatter
 
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
@@ -26,7 +30,7 @@ del my_dataset['TOTAL']
 ### Extract features and labels from dataset for local testing
 data = featureFormat(my_dataset, features_list, sort_keys = True)
 labels, features = targetFeatureSplit(data)
-
+plotScatter(features, labels, 2, 0, 'from_this_person_to_poi', 'Salary')
 ### Task 4: Try a varity of classifiers
 ### Please name your classifier clf for easy export below.
 ### Note that if you want to do PCA or other multi-stage operations,
