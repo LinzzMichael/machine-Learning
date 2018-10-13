@@ -8,8 +8,8 @@ numpy.random.seed(42)
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
-words_file = "../text_learning/your_word_data.pkl" 
-authors_file = "../text_learning/your_email_authors.pkl"
+words_file = "../text_learning/your_word_data.pkl"
+authors_file = "..\\text_learning\\your_email_authors.pkl"
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
 
@@ -44,13 +44,14 @@ from sklearn.tree import DecisionTreeClassifier
 clf = DecisionTreeClassifier()
 clf.fit(features_train, labels_train)
 importance = clf.feature_importances_
+
+features = vectorizer.get_feature_names()
 max_Value = max(importance)
-i = 0
-for a in importance:
-    if a == max_Value:
-        print(i)
-    i = i + 1
 
+for i in range(0,len(importance)):
+    if importance[i] > 0.2:
+        print("{}  th is {}, the importance is {}".format(i, features[i], importance[i]) )
 
+print(clf.score(features_test, labels_test))
 
 
